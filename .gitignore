@@ -1,0 +1,9 @@
+.env
+
+path="/mnt/e/ITI Data Visualization Track/Data Science/Data_Engineering_Boot_Camp/6-batch-processing"
+spark-submit \
+    --master "spark://amensfwt.localdomain:7077" \
+    "${path}/spark_local_cluster.py" \
+        --input_green "${path}/nyc_taxi/data/processed/green/*/*" \
+        --input_yellow "${path}/nyc_taxi/data/processed/yellow/*/*" \
+        --output "${path}/data/report-2020"
