@@ -7,3 +7,4 @@ spark-submit \
         --input_green "${path}/nyc_taxi/data/processed/green/*/*" \
         --input_yellow "${path}/nyc_taxi/data/processed/yellow/*/*" \
         --output "${path}/data/report-2020"
+__pycache__
