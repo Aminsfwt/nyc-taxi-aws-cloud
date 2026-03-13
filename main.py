@@ -14,7 +14,7 @@ aws_region = os.environ["AWS_REGION"]
 aws_bucket = os.environ["AWS_BUCKET"]
 
 # Target dataset location in S3 (Green Taxi processed parquet partitions).
-s3_uri = f"s3a://{aws_bucket}/processed/green/*/*"
+s3_uri = f"s3a://{aws_bucket}/reports/"
 
 # Build a SparkSession configured for S3A access.
 spark = (
@@ -60,9 +60,9 @@ spark = (
 spark.sparkContext.setLogLevel("ERROR")
 
 # Read parquet files from S3 and preview selected columns.
-green_df = spark.read.parquet(s3_uri)
-print(f"Read S3")
-green_df.select('VendorID', 'lpep_pickup_datetime', 'lpep_dropoff_datetime').show(5)
+df = spark.read.parquet(s3_uri)
+df.show(5, truncate=False)
+
 
 
 
