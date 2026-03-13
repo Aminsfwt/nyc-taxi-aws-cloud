@@ -9,8 +9,7 @@ This folder contains a minimal PySpark job that reads a Parquet dataset from Ama
   - `hadoop-aws` + AWS SDK JARs (downloaded automatically via `spark.jars.packages`).
   - S3A filesystem + simple access key authentication.
   - An explicit regional S3 endpoint to avoid redirect/signature issues.
-- Reads Parquet files from `s3a://$AWS_BUCKET/reports/`.
-- Prints `5` rows using `df.show(...)`.
+- Reads Parquet files from `s3a://$AWS_BUCKET/`.
 
 ## Prerequisites
 
@@ -72,7 +71,3 @@ If everything is configured correctly, you should see a Spark DataFrame preview 
 - `AccessDenied`:
   - Confirm the IAM policy allows `s3:ListBucket` and `s3:GetObject` on the bucket and the `reports/` prefix.
 
-## Security notes
-
-- Do not commit real credentials. Keep `nyc_taxi_aws_cloud/.env` local only (it is ignored by `nyc_taxi_aws_cloud/.gitignore`).
-- If credentials were ever committed or shared, rotate them immediately in AWS IAM.
